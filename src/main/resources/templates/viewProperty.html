@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Property</title>
+    <style>
+        /* CSS styles */
+        body {
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("/img/picture4.jpg");
+            height: 100vh;
+            font-family: cursive;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.8); /* Updated to use RGBA value */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 48px;
+            margin-bottom: 30px;
+        }
+
+        p {
+            color: #555;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .property-details {
+            margin-top: 30px;
+        }
+
+        .property-details p span {
+            font-weight: bold;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #4285f4;
+            color: #fff;
+            font-size: 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #3367d6;
+        }
+        
+        .update-button {
+            background-color: #3498db;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Property Details</h1>
+        <div class="property-details">
+            <p>Property ID: <span th:text="${property.id}"></span></p>
+            <p>Property Name: <span th:text="${property.name}"></span></p>
+            <p>Property Price: <span th:text="${property.price}"></span></p>
+            <p>Property Location: <span th:text="${property.location}"></span></p>
+            <p>Property Bedrooms: <span th:text="${property.bedrooms}"></span></p>
+            <p>Property Bathrooms: <span th:text="${property.bathrooms}"></span></p>
+            <td><a href="#" th:href="@{/showPropFormForUpdate/{id}(id=${property.id})}" class="update-button">Update</a></td>
+        </div>
+    </div>
+</body>
+</html>

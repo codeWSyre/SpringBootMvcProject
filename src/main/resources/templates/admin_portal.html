@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Real Estate Management System</title>
+    <style>
+      .logo {
+        max-width: 150px; /* Adjust the size as needed */
+        height: auto;
+        margin-left: 7px; /* Add margin to the left */
+    }
+
+    h2 {
+        display: inline-block; /* Make the heading an inline element */
+        margin-left: 13px; /* Adjust the margin between the logo and heading */
+   
+    }
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+                   font-family: cursive;
+        background-image: url("/img/picture3.jpg");
+            background-size: 100%;
+ background-repeat: no-repeat;
+        }
+
+        .header {
+            background-color: black;
+            padding: 10px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .footer {
+            background-color: #333;
+            padding: 10px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .cover {
+            min-height: calc(100vh - 120px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .link-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .link-list li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .link-list li a {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .link-list li a.signup {
+            background-color: #007bff;
+        }
+
+        .link-list li a.signup:hover {
+            background-color: #0056b3;
+        }
+
+        .link-list li a.login {
+            background-color: #28a745;
+        }
+
+        .link-list li a.login:hover {
+            background-color: #218838;
+        }
+
+        .link-list li a.admin {
+            background-color: #ffc107;
+        }
+
+        .link-list li a.admin:hover {
+            background-color: #e0a800;
+        }
+
+        .link-list li a.logout {
+            background-color: #dc3545;
+        }
+
+        .link-list li a.logout:hover {
+            background-color: #c82333;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cover {
+                padding: 0 10px;
+            }
+        }
+        .logo {
+            max-width: 150px; /* Adjust the size as needed */
+            height: auto;
+            margin-left: 20px
+            
+        }
+        h1{
+        color: black;
+        }
+        
+.typing-demo {
+  width: 22ch;
+  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 2em;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
+    </style>
+</head>
+<body>
+    <div class="header">
+     <img class="logo" src="/img/willLogo.jpg" alt="Logo">
+        <h2>Real Estate Management System.</h2>
+    </div>
+    
+    <div class="cover">
+        <h1>Welcome to the Real Estate Management System</h1>
+        <ul class="link-list">
+            <li class="active"><a class="signup" th:href="@{/showUserForm}">Guests Sign up</a></li>
+            <li><a class="login" th:href="@{/showLoginForm}">Guests Sign in</a></li>
+            <li><a class="admin" th:href="@{/adminReg}">Admin Sign up</a></li>
+            <li><a class="admin" th:href="@{/adminLoginForm}">Admin Sign in</a></li>
+        </ul>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 Real Estate Management System. All rights reserved.</p>
+    </div>
+    
+</body>
+
+</html>
+
+

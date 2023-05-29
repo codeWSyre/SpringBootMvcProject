@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <style>
+        /* Reset default styles */
+        body, h1, h2, p, ul, li {
+            margin: 0;
+            padding: 0;
+            
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            font-family: cursive;
+           background-image: url("/img/house11.jpg");
+            background-size: 100%;
+ background-repeat: no-repeat;
+        }
+
+        /* Side Navigation */
+        .sidenav {
+            width: 260px;
+            background-color: #333;
+            color: #fff;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+        .sidenav a {
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            color: #fff;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidenav a:hover {
+            background-color: #555;
+        }
+
+        /* Main Content */
+        .main {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card {
+          
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+           
+         border-radius: 5px;
+       background-color: rgba(255, 255, 255, 0.8); /* Updated to use RGBA value */
+           
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h2 {
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .logo {
+            max-width: 100px; /* Adjust the size as needed */
+            height: auto;
+        }
+
+        .card p {
+            color: #777;
+            margin-bottom: 0;
+            
+        }
+           .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+        /* Styles for desktop screens */
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+/* Styles for tablet screens */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 0 20px;
+  }
+}
+
+/* Styles for mobile screens */
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+    padding: 0 10px;
+  }
+}
+    h3{
+    
+    font-size: 18px;
+    color: red;
+    }  
+    h2{
+    font-size: 20px;
+    color: white;
+    } 
+    </style>
+</head>
+<body>
+    <div class="sidenav">
+      <img class="logo" src="/img/logo1.jpg" alt="Logo"><br>
+          <h2>  Real Estate Management System.<br></h2>
+         <br>   
+         
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/userList}">Users</a>
+        <a th:href="@{/listProp}">All Properties</a>
+        <a th:href="@{/showUserForm}">Add client</a>
+        <a th:href="@{/listAgents}">Admins </a>
+         <a th:href="@{/showPropReg}">Register property</a>
+         <a th:href="@{/showSearchingPortal}">search</a>
+          <a th:href="@{/BookedList}">Booked properties</a>
+           <a th:href="@{/showBookingPortal}">Booking portal</a>
+           <a th:href="@{/showPropForBook}">Book for client</a>
+          <a th:href="@{/userSearchPortal}">search user</a>
+    </div>
+    
+    <div class="main">
+        <h1>Admin Dashboard</h1>  
+
+        <div class="card">
+            <h2>Welcome,<a  th:text="${admin.username}"></a> </h2>    <h3  th:text="${admin.email}"></h3>
+            <p>This is the admin dashboard. You can manage users, products, orders, and settings here.<br> <a class="button"  th:href="@{/listAgents}">Admins</a><br></p>
+        </div>
+
+        <div class="card">
+            <h2>Users</h2>
+            <p>   <a class="button" th:href="@{/userList}">Users</a> <br>
+             <a class="button"  th:href="@{/showUserForm}">Add user</a><br>
+               <h1>User Count</h1>
+    <p>Total users: <span th:text="${userCount}"></span></p>
+      </p>
+        </div>
+
+        <div class="card">
+            <h2>Proprties</h2>
+            <p>  <a class="button" th:href="@{/listProp}">Properties</a><br>
+        <a class="button" th:href="@{/showPropReg}">Register property</a><br>
+        <a class="button" th:href="@{/showSearchingPortal}">Search</a><br>
+        <a class="button" th:href="@{/BookedList}">Booked properties</a><br>
+        <a class="button" th:href="@{/showBookingPortal}">Booking portal</a><br></p>
+        </div>
+
+        <div class="card">
+            <h2>Orders</h2>
+            <p>You have 10 pending orders.</p>
+        </div>
+
+        <div class="card">
+            <h2>Settings</h2>
+            <p>Manage your site settings here.</p>
+        </div>
+    </div>
+</body>
+</html>
