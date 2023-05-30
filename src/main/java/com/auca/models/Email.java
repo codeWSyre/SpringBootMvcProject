@@ -13,20 +13,18 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "emails")
 public class Email {
+	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
     private String recipient;
-
     private String subject;
-
     @Column(columnDefinition = "TEXT")
     private String content;
-
     @Column(name = "sent_date")
     private LocalDateTime sentDate;
-
+    
 	public Email() {
 		super();
 	}

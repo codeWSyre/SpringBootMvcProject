@@ -18,7 +18,7 @@ public class MVCconfig implements WebMvcConfigurer {
       return slr;		
 	}
 
-     @Bean
+     @Bean 
     public LocaleChangeInterceptor localeChangeInterceptor() {
     	 LocaleChangeInterceptor lci= new LocaleChangeInterceptor();
     	 lci.setParamName("lang");

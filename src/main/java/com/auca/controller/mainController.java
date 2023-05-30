@@ -142,32 +142,33 @@ public class mainController {
 	 		Admin admin=new Admin();
 	 		model.addAttribute("admin" ,admin);
 	 		return "admin_reg";
-	 	
 	 	} 
-	    
-	     
+	  
 	 	@PostMapping("/saveAdmin")
-public String saveAdmin(@ModelAttribute("admin") Admin admin) {
-	 	
+        public String saveAdmin(@ModelAttribute("admin") Admin admin) {
 	 		propServ.saveAdminUsers(admin);
 	 		return "redirect:/adminLoginForm";
-	 		
-	 		
 	 	}
+	 	
 	 	  @GetMapping("/adminLoginForm")
 	      public String showLoginFormAdmin(Model model) {
+	 		  
 	     	 model.addAttribute("admin", new Admin());
-	          return "adminLogin";
+	     	 
+	                  return "adminLogin";
 	      }
+	 	  
 	      @PostMapping("/adminLogin")
 	      public String loginAdmin(@RequestParam("email") String email, @RequestParam("password") String password, Model model) {
+	    	  
 	          Admin adminUser = propServ.loginAdmin(email, password);
+	          
 	          if (adminUser != null) {
-	              // Successful login
+	        	
 	              model.addAttribute("admin", adminUser);
 	              return "admin_Dash";
 	          } else {
-	              // Failed login
+	            
 	              model.addAttribute("error", "Invalid email or password");
 	              return "redirect:/error";
 	          }
